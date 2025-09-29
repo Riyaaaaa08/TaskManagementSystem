@@ -1,8 +1,9 @@
 import "../App.css";
-import { FaTachometerAlt, FaFolder, FaUsers } from "react-icons/fa";
 import TextInput from "../components/ui/input";
 import SelectInput from "../components/ui/selectinput";
 import { useForm } from "react-hook-form";
+import { useNavigate } from "react-router-dom";
+import Sidebar from "../components/ui/sidebar";
 
 type ProfileForm = {
   firstName: string;
@@ -23,42 +24,23 @@ export default function Profile() {
     reset,
   } = useForm<ProfileForm>();
 
-  const onSubmit = (data: ProfileForm) => {
+  const navigate = useNavigate();
+
+  function onSubmit(data: ProfileForm) {
     console.log("Form Data:", data);
     alert("Form Submitted!");
     reset();
-  };
+  }
 
   return (
     <div className="app">
-      {/* Sidebar */}
-      <aside className="sidebar">
-        <div>
-          <div className="logo">
-            <span>T</span>ASK MANAGER
-          </div>
-          <nav>
-            <ul>
-              <li>
-                <FaTachometerAlt /> Dashboard
-              </li>
-              <li>
-                <FaFolder /> My Projects
-              </li>
-              <li>
-                <FaUsers /> My Team
-              </li>
-            </ul>
-          </nav>
-        </div>
-        <div className="profile-footer">
-          <div className="avatar">GM</div>
-          <div>
-            <div>Gauri More</div>
-            <small style={{ opacity: 0.8 }}>Developer</small>
-          </div>
-        </div>
-      </aside>
+      {/*  Reusable Sidebar */}
+      <Sidebar
+        navigate={navigate}
+        userName="Riya Panchal"
+        userRole="Administrator"
+        userInitials="RP"
+      />
 
       {/* Main Content */}
       <main className="main-content">
@@ -196,7 +178,11 @@ export default function Profile() {
 
             {/* Actions */}
             <div className="form-actions">
-              <button type="button" className="cancel-btn">
+              <button
+                type="button"
+                className="cancel-btn"
+                onClick={() => navigate("/")}
+              >
                 Cancel
               </button>
               <button type="submit" className="save-btn">
