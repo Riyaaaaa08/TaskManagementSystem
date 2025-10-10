@@ -19,9 +19,9 @@ const Login: React.FC = () => {
   const onSubmit = (data: LoginFormData) => {
     console.log("Login Data:", data);
 
-    // Temporary: assume all logins go to tester dashboard
+    // Temporary: assume all logins go to tester dashboard x
     alert("Login successful");
-    navigate("/tester/dashboard");
+    navigate("/admin/projects");
   };
 
   return (
@@ -66,7 +66,9 @@ const Login: React.FC = () => {
                 })}
               />
               {errors.password && (
-                <div className="invalid-feedback">{errors.password.message}</div>
+                <div className="invalid-feedback">
+                  {errors.password.message}
+                </div>
               )}
             </div>
 
