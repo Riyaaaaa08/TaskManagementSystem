@@ -20,7 +20,7 @@ const Login: React.FC = () => {
     console.log("Login Data:", data);
 
     alert("Login successful");
-    navigate("/leader/LeaderDashboard");
+    navigate("LeaderDashboard");
   };
 
   return (

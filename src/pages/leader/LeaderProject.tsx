@@ -1,6 +1,6 @@
 import React from "react";
-import Sidebar from "../../components/Sidebar";
-import Header from "../../components/Header";
+import Sidebar from "../../components/tester/Sidebar";
+import Header from "../../components/tester/Header";
 import "../../App.css";
 
 const LeaderProject: React.FC = () => (

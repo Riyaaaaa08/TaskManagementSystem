@@ -1,6 +1,6 @@
 import React from "react";
-import Sidebar from "../../components/Sidebar";
-import Header from "../../components/Header";
+import Sidebar from "../../components/tester/Sidebar";
+import Header from "../../components/tester/Header";
 import {
   PieChart,
   Pie,
@@ -19,7 +19,6 @@ import { TiTick } from "react-icons/ti";
 import { RiProgress6Line } from "react-icons/ri";
 import { SlCalender } from "react-icons/sl";
 
-// Pie chart data (Workload distribution by team/member)
 const pieData = [
   { name: "Team Alpha", value: 420 },
   { name: "Team Beta", value: 310 },
@@ -30,7 +29,6 @@ const pieData = [
 
 const COLORS = ["#6C63FF", "#FF6384", "#36A2EB", "#FFCE56", "#9CCC65"];
 
-// Line chart data (Weekly delivery trend: completed items)
 const lineData = [
   { name: "Week 1", completed: 28 },
   { name: "Week 2", completed: 34 },

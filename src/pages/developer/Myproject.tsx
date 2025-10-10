@@ -1,6 +1,6 @@
 import React from "react";
-import Header from "../../components/Header";
-import Sidebar from "../../components/Sidebar";
+import Header from "../../components/tester/Header";
+import Sidebar from "../../components/tester/Sidebar";
 import { FaEdit } from "react-icons/fa";
 import { MdDelete } from "react-icons/md";
 import { FaCartShopping } from "react-icons/fa6";

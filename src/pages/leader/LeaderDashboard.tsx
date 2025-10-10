@@ -1,7 +1,7 @@
 // src/pages/dashboard/LeaderDashboard.tsx
 import React, { useState } from "react";
-import Sidebar from "../../components/Sidebar";
-import Header from "../../components/Header";
+import Sidebar from "../../components/tester/Sidebar";
+import Header from "../../components/tester/Header";
 import { PieChart, Pie, Cell, Legend, ResponsiveContainer } from "recharts";
 import CreateTask from "../../pages/leader/CreateTask";
 

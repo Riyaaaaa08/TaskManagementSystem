@@ -1,0 +1,113 @@
+/* Scoped styles with ae- prefix to avoid collisions */
+.ae-page {
+  display: flex;
+  min-height: 100vh;
+  background: #f7f7fb;
+  padding-left: 200px; /* Adjust if sidebar width changes */
+  padding-top: 40px; /* Adjust if header height changes */
+}
+
+.ae-main {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+}
+
+.ae-content {
+  padding: 24px;
+}
+
+.ae-title {
+  font-size: 20px;
+  font-weight: 700;
+  color: #1f2937;
+  margin-bottom: 14px;
+}
+
+.ae-card {
+  background: #fff;
+  border-radius: 14px;
+  box-shadow: 0 6px 20px rgba(17, 24, 39, 0.06);
+  border: 1px solid #e7ecf5;
+}
+
+.ae-card-head {
+  padding: 16px 18px;
+  border-bottom: 1px solid #eef2f7;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.ae-head-title {
+  font-weight: 700;
+  color: #111827;
+}
+
+.ae-head-sub {
+  color: #6b7280;
+  font-size: 12px;
+}
+
+.ae-form {
+  padding: 18px;
+}
+
+.ae-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 18px 16px;
+}
+
+.ae-field {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.ae-label {
+  font-weight: 700;
+  color: #111827;
+}
+
+.ae-input {
+  width: 100%;
+  background: #fff;
+  border: 1px solid #e5e7eb;
+  border-radius: 10px;
+  padding: 10px 12px;
+  font-size: 14px;
+  color: black;
+}
+
+.ae-actions {
+  display: flex;
+  justify-content: flex-end;
+  gap: 10px;
+  padding-top: 12px;
+}
+
+.ae-btn {
+  border: 0;
+  border-radius: 10px;
+  padding: 10px 16px;
+  font-weight: 700;
+  cursor: pointer;
+}
+
+.ae-btn-ghost {
+  background: #fff;
+  color: #374151;
+  border: 1px solid #e5e7eb;
+}
+
+.ae-btn-primary {
+  background: #6c43f3;
+  color: #fff;
+}
+
+@media (max-width: 900px) {
+  .ae-grid {
+    grid-template-columns: 1fr;
+  }
+}

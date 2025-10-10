@@ -2,9 +2,10 @@ import React from "react";
 import { NavLink } from "react-router-dom";
 
 const navItems = [
-  { to: "/admin/dashboard", label: "Dashboard", icon: "fa-home" },
-  { to: "/admin/projects", label: "Projects", icon: "fa-tasks" },
-  { to: "/teams", label: "Teams", icon: "fa-users" }, // fixed path + valid icon
+  { to: "/dashboard", label: "Dashboard", icon: "fa-home" }, // adjust if used
+  { to: "/projects", label: "Projects", icon: "fa-tasks" },
+  { to: "/teams", label: "Teams", icon: "fa-users" },
+  { to: "/employees/add", label: "Add Employee", icon: "fa-user-plus" }, // new
 ];
 
 const Sidebar: React.FC = () => (

@@ -1,6 +1,6 @@
 import React from "react";
-import Header from "../../components/Header";
-import Sidebar from "../../components/Sidebar";
+import Header from "../../components/tester/Header";
+import Sidebar from "../../components/tester/Sidebar";
 import { PieChart, Pie, Cell, Tooltip, ResponsiveContainer } from "recharts";
 
 // Chart data

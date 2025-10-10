@@ -22,6 +22,8 @@ import TesterProfile from "./components/EditProfile.tsx";
 import Projects from "./pages/admin/Projects.tsx";
 import Teams from "./pages/admin/Teams.tsx";
 
+import AddEmployee from "./pages/admin/AddEmployee.tsx";
+
 import DeveloperDashboard from "./pages/developer/Dashboard";
 import MyProjects from "./pages/developer/Myproject";
 import MyTeam from "./pages/developer/Myteam";
@@ -106,7 +108,7 @@ function App() {
 
           {/* Tester Routes */}
           <Route
-            path="/tester/dashboard"
+            path="/dashboard"
             element={
               <TesterLayout>
                 <TesterDashboard />
@@ -114,7 +116,7 @@ function App() {
             }
           />
           <Route
-            path="/tester/tasks"
+            path="/tasks"
             element={
               <TesterLayout>
                 <TesterTasks />
@@ -122,7 +124,7 @@ function App() {
             }
           />
           <Route
-            path="/tester/progress"
+            path="/progress"
             element={
               <TesterLayout>
                 <Progress />
@@ -131,7 +133,7 @@ function App() {
           />
 
           <Route
-            path="/tester/reports"
+            path="/testerreports"
             element={
               <TesterLayout>
                 <Reports />
@@ -161,12 +163,12 @@ function App() {
           <Route path="/projects" element={<Projects />} />
           <Route path="/teams" element={<Teams />} />
           {/* Stubs for other sections if needed */}
-
+          <Route path="/employees/add" element={<AddEmployee />} />
           <Route path="*" element={<Navigate to="/projects" replace />} />
 
           {/* Developer Routes */}
           <Route
-            path="/developer/dashboard"
+            path="/dashboard"
             element={
               <DeveloperLayout>
                 <DeveloperDashboard />
@@ -174,7 +176,7 @@ function App() {
             }
           />
           <Route
-            path="/developer/my-projects"
+            path="/my-projects"
             element={
               <DeveloperLayout>
                 <MyProjects />
@@ -182,7 +184,7 @@ function App() {
             }
           />
           <Route
-            path="/developer/my-team"
+            path="/my-team"
             element={
               <DeveloperLayout>
                 <MyTeam />
@@ -190,7 +192,7 @@ function App() {
             }
           />
           <Route
-            path="/developer/reports"
+            path="/reports"
             element={
               <DeveloperLayout>
                 <DeveloperReport />
@@ -200,7 +202,7 @@ function App() {
 
           {/* Leader Routes */}
           <Route
-            path="/leader/leaderdashboard"
+            path="/leaderdashboard"
             element={
               <LeaderLayout>
                 <LeaderDashboard />
@@ -208,7 +210,7 @@ function App() {
             }
           />
           <Route
-            path="/leader/leadermyteam"
+            path="/leadermyteam"
             element={
               <LeaderLayout>
                 <LeaderMyteam />
@@ -216,7 +218,7 @@ function App() {
             }
           />
           <Route
-            path="/leader/leaderproject"
+            path="/leaderproject"
             element={
               <LeaderLayout>
                 <LeaderProject />
@@ -224,7 +226,7 @@ function App() {
             }
           />
           <Route
-            path="/leader/leaderreport"
+            path="/leaderreport"
             element={
               <LeaderLayout>
                 <LeaderReport />
@@ -232,7 +234,7 @@ function App() {
             }
           />
           <Route
-            path="/leader/create-task"
+            path="/create-task"
             element={
               <LeaderLayout>
                 <CreateTask onClose={() => {}} />

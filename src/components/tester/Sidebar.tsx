@@ -8,28 +8,25 @@ interface SidebarProps {
 }
 
 // Tester menu
-const testerNav = [
-  { to: "/tester/dashboard", label: "Dashboard", icon: "fa-home" },
-  { to: "/tester/tasks", label: "Tasks", icon: "fa-tasks" },
-  { to: "/tester/progress", label: "Progress", icon: "fa-spinner" },
-
-  { to: "/tester/reports", label: "Reports", icon: "fa-file-alt" },
+const navItems = [
+  { to: "/dashboard", label: "Dashboard", icon: "fa-home" },
+  { to: "/tasks", label: "Tasks", icon: "fa-tasks" },
+  { to: "/progress", label: "Progress", icon: "fa-spinner" },
+  // { to: "/dashboard", label: "Dashboard", icon: "fa-home" },
+  { to: "/my-projects", label: "My Projects", icon: "fa-folder" },
+  { to: "/my-team", label: "My Team", icon: "fa-users" },
+  { to: "/reports", label: "Reports", icon: "fa-chart-bar" },
+  { to: "/testerreports", label: "Reports", icon: "fa-file-alt" },
 ];
 
 // Developer menu
-const developerNav = [
-  { to: "/developer/dashboard", label: "Dashboard", icon: "fa-home" },
-  { to: "/developer/my-projects", label: "My Projects", icon: "fa-folder" },
-  { to: "/developer/my-team", label: "My Team", icon: "fa-users" },
-  { to: "/developer/reports", label: "Reports", icon: "fa-chart-bar" },
-];
 
 // Leader menu
 const leaderNav = [
-  { to: "/leader/leaderdashboard", label: "Dashboard", icon: "fa-home" },
-  { to: "/leader/leaderproject", label: "My Projects", icon: "fa-folder" },
-  { to: "/leader/leadermyteam", label: "Teams", icon: "fa-users" },
-  { to: "/leader/leaderreport", label: "Reports", icon: "fa-chart-line" },
+  { to: "/leaderdashboard", label: "Dashboard", icon: "fa-home" },
+  { to: "/leaderproject", label: "My Projects", icon: "fa-folder" },
+  { to: "/leadermyteam", label: "Teams", icon: "fa-users" },
+  { to: "/leaderreport", label: "Reports", icon: "fa-chart-line" },
 ];
 
 const Sidebar: React.FC<SidebarProps> = ({
@@ -37,12 +34,12 @@ const Sidebar: React.FC<SidebarProps> = ({
   userName = "User",
   userInitials = "U",
 }) => {
-  const navItems =
-    role === "tester"
-      ? testerNav
-      : role === "developer"
-      ? developerNav
-      : leaderNav;
+  // const navItems =
+  //   role === "tester"
+  //     ? testerNav
+  //     : role === "developer"
+
+  //     : leaderNav;
 
   return (
     <div
