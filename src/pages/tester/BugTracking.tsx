@@ -1,5 +1,5 @@
 import React from "react";
-import BugList from "../../components/BugList";
+import BugList from "../../components/tester/BugList";
 
 const bugs = [
   {

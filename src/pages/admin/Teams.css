@@ -1,0 +1,223 @@
+/* TEAMS PAGE — SAFE, SCOPED, NO GLOBAL IMPACT */
+:root {
+  --tm-header-h: 64px;   /* adjust if your AdminHeader height differs */
+  --tm-content-pad: 24px;
+}
+
+/* Outer wrapper that sits inside the existing app layout */
+.tm-teams-page {
+  background: #f7f7fb;
+  min-height: calc(100vh - var(--tm-header-h));
+  width: 100%;
+  padding-top: 30px;
+   padding-left: 200px;
+  
+}
+
+/* Content container — does not push or overlap header/sidebar */
+.tm-teams-container {
+  padding: var(--tm-content-pad);
+}
+
+/* If this page renders its own AdminSidebar + AdminHeader inside the page:
+   place the main area to the right of the sidebar and below the header. */
+.tm-teams-layout {
+  display: flex;
+  min-height: calc(100vh - var(--tm-header-h));
+  background: #f7f7fb;
+  
+}
+
+.tm-teams-main {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+}
+
+.tm-teams-content {
+  padding: var(--tm-content-pad);
+}
+
+/* Topbar */
+.tm-teams-topbar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 16px;
+}
+
+.tm-teams-title {
+  font-size: 24px;
+  font-weight: 700;
+  color: #1f2937;
+}
+
+.tm-teams-actions {
+  display: flex;
+  gap: 12px;
+}
+
+/* Buttons (scoped) */
+.tm-btn {
+  border: 0;
+  border-radius: 12px;
+  padding: 10px 16px;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.tm-btn-primary { background: #6c43f3; color: #fff; }
+.tm-btn-secondary { background: #eef2ff; color: #4338ca; }
+.tm-btn-ghost {
+  background: #fff;
+  color: #374151;
+  border: 1px solid #e5e7eb;
+  border-radius: 8px;
+  padding: 8px 14px;
+}
+
+/* Cards/Blocks */
+.tm-card {
+  background: #fff;
+  border-radius: 14px;
+  box-shadow: 0 6px 20px rgba(17, 24, 39, 0.06);
+  border: 1px solid #eef2f7;
+}
+
+.tm-block {
+  padding: 18px;
+  margin-bottom: 18px;
+}
+
+/* Section headers */
+.tm-section-head { margin-bottom: 12px; }
+.tm-section-title {
+  font-size: 18px;
+  font-weight: 700;
+  color: #111827;
+  margin: 0 0 4px 0;
+}
+.tm-section-subtitle { color: #6b7280; margin: 0; }
+
+/* Leaders */
+.tm-leaders-row {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(220px, 1fr));
+  gap: 16px;
+  padding: 8px 2px 16px 2px;
+}
+
+.tm-leader-card {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  background: #f9fafb;
+  border: 1px solid #eef2f7;
+  border-radius: 12px;
+  padding: 14px;
+}
+
+.tm-leader-avatar {
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  color: #fff;
+  font-weight: 700;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.tm-leader-info { display: flex; flex-direction: column; gap: 4px; }
+.tm-leader-name { font-weight: 700; color: #111827; }
+.tm-leader-email { color: #6b7280; font-size: 14px; }
+.tm-badge {
+  display: inline-block;
+  background: #eef2ff;
+  color: #4338ca;
+  font-size: 12px;
+  padding: 2px 8px;
+  border-radius: 8px;
+  font-weight: 700;
+  width: fit-content;
+}
+
+/* Table */
+.tm-table {
+  width: 100%;
+  overflow: hidden;
+  border: 1px solid #eef2f7;
+  border-radius: 12px;
+}
+
+.tm-thead,
+.tm-tr {
+  display: grid;
+  grid-template-columns: 2fr 1.3fr 2fr 1fr;
+  align-items: center;
+}
+
+.tm-thead {
+  background: #f9fafb;
+  color: #6b7280;
+  font-weight: 700;
+  font-size: 14px;
+}
+
+.tm-th,
+.tm-td {
+  padding: 14px 16px;
+  border-bottom: 1px solid #eef2f7;
+}
+
+.tm-tbody .tm-tr:last-child .tm-td { border-bottom: 0; }
+
+/* Name cell with avatar */
+.tm-col-name { display: flex; align-items: center; gap: 10px; }
+.tm-initial-avatar {
+  width: 32px; height: 32px; border-radius: 50%;
+  background: #e5e7eb; color: #374151; font-weight: 700;
+  display: inline-flex; align-items: center; justify-content: center;
+}
+.tm-name-text { vertical-align: middle; }
+
+/* Role pill */
+.tm-role-pill { padding: 4px 10px; font-size: 12px; font-weight: 700; border-radius: 999px; background: #e5e7eb; color: #111827; }
+.tm-role-pill.ok { background: #dcfce7; color: #166534; }
+.tm-role-pill.warn { background: #fee2e2; color: #991b1b; }
+
+/* Pagination */
+.tm-pagination-wrap { display: flex; justify-content: flex-end; padding: 12px 0 6px 0; }
+.tm-pager { display: flex; gap: 10px; }
+
+/* Responsive */
+@media (max-width: 1200px) {
+  .tm-leaders-row { grid-template-columns: repeat(2, 1fr); }
+}
+@media (max-width: 720px) {
+  .tm-thead, .tm-tr { grid-template-columns: 1.6fr 1fr 1.6fr 1fr; }
+  .tm-teams-container { padding: 16px; }
+}
+/* Inline create form styles (scoped) */
+.tm-create-form { display: flex; flex-direction: column; gap: 14px; }
+.tm-form-row { display: flex; flex-direction: column; gap: 8px; }
+.tm-form-label { font-weight: 700; color: #111827; }
+.tm-input {
+  width: 100%;
+  background: #fff;
+  border: 1px solid #e5e7eb;
+  border-radius: 10px;
+  padding: 10px 12px;
+  font-size: 14px;
+}
+.tm-members-grid { display: grid; gap: 12px; }
+.tm-member {
+  display: grid;
+  grid-template-columns: 1.2fr 1.6fr 1fr auto;
+  gap: 10px;
+}
+.tm-form-actions { display: flex; justify-content: flex-end; gap: 10px; margin-top: 6px; }
+
+@media (max-width: 900px) {
+  .tm-member { grid-template-columns: 1fr; }
+}

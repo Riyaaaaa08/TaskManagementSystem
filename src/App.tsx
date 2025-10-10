@@ -13,15 +13,17 @@ import ForgotPassword from "./pages/auth/ForgotPassword";
 import VerifyOtp from "./pages/auth/VerifyOtp";
 import ResetPassword from "./pages/auth/ResetPassword";
 
-import TesterDashboard from "./pages/tester/Dashboard";
+import TesterDashboard from "./pages/tester/Dashboard.tsx";
 import TesterTasks from "./pages/tester/TesterTasks";
-import InProgress from "./pages/tester/InProgress";
-import Resolved from "./pages/tester/Resolved";
-import Pending from "./pages/tester/Pending";
+import Progress from "./pages/tester/Progress";
 import Reports from "./pages/tester/TesterReports";
+import TesterProfile from "./components/EditProfile.tsx";
 
-import Header from "./components/Header";
-import Sidebar from "./components/Sidebar";
+import Projects from "./pages/admin/Projects.tsx";
+import Teams from "./pages/admin/Teams.tsx";
+
+import Header from "./components/tester/Header.tsx";
+import Sidebar from "./components/tester/Sidebar.tsx";
 
 const TesterLayout: React.FC<{ children: React.ReactNode }> = ({
   children,
@@ -71,29 +73,14 @@ function App() {
             }
           />
           <Route
-            path="/tester/inprogress"
+            path="/tester/progress"
             element={
               <TesterLayout>
-                <InProgress />
+                <Progress />
               </TesterLayout>
             }
           />
-          <Route
-            path="/tester/resolved"
-            element={
-              <TesterLayout>
-                <Resolved />
-              </TesterLayout>
-            }
-          />
-          <Route
-            path="/tester/pending"
-            element={
-              <TesterLayout>
-                <Pending />
-              </TesterLayout>
-            }
-          />
+
           <Route
             path="/tester/reports"
             element={
@@ -102,6 +89,31 @@ function App() {
               </TesterLayout>
             }
           />
+          <Route
+            path="/profile"
+            element={
+              <>
+                <Header />
+                <div className="d-flex vh-100">
+                  <Sidebar />
+                  <div className="flex-grow-1 d-flex flex-column app-main-offset">
+                    <main
+                      className="flex-grow-1 overflow-auto p-0"
+                      style={{ background: "#F7F3FF" }}
+                    >
+                      <TesterProfile />
+                    </main>
+                  </div>
+                </div>
+              </>
+            }
+          />
+          <Route path="/" element={<Navigate to="/projects" replace />} />
+          <Route path="/projects" element={<Projects />} />
+          <Route path="/teams" element={<Teams />} />
+          {/* Stubs for other sections if needed */}
+
+          <Route path="*" element={<Navigate to="/projects" replace />} />
 
           <Route path="/" element={<Navigate to="/login" replace />} />
         </Routes>

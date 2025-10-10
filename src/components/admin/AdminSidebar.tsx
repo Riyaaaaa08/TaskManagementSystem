@@ -1,14 +1,10 @@
 import React from "react";
-
 import { NavLink } from "react-router-dom";
 
 const navItems = [
-  { to: "/tester/dashboard", label: "Dashboard", icon: "fa-home" },
-  { to: "/tester/tasks", label: "Tasks", icon: "fa-tasks" },
-  { to: "/tester/inprogress", label: "In Progress", icon: "fa-spinner" },
-  { to: "/tester/resolved", label: "Resolved", icon: "fa-check" },
-  { to: "/tester/pending", label: "Pending", icon: "fa-clock" },
-  { to: "/tester/reports", label: "Reports", icon: "fa-file-alt" },
+  { to: "/admin/dashboard", label: "Dashboard", icon: "fa-home" },
+  { to: "/admin/projects", label: "Projects", icon: "fa-tasks" },
+  { to: "/teams", label: "Teams", icon: "fa-users" }, // fixed path + valid icon
 ];
 
 const Sidebar: React.FC = () => (
@@ -33,19 +29,6 @@ const Sidebar: React.FC = () => (
         </NavLink>
       ))}
     </nav>
-
-    <div className="mt-auto p-3 d-flex align-items-center">
-      <div
-        className="rounded-circle bg-secondary d-flex justify-content-center align-items-center me-2"
-        style={{ width: 40, height: 40, color: "white" }}
-      >
-        RP
-      </div>
-      <div>
-        <div className="fw-bold">Riya Panchal</div>
-        <div className="small">Tester</div>
-      </div>
-    </div>
   </div>
 );
 
