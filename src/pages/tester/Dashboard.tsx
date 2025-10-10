@@ -1,7 +1,7 @@
 import React, { useState } from "react";
-import ProjectCard from "../../components/ProjectCard";
-import BugList from "../../components/BugList";
-import CommentsSection from "../../components/CommentsSection";
+import ProjectCard from "../../components/tester/ProjectCard";
+import BugList from "../../components/tester/BugList";
+import CommentsSection from "../../components/tester/CommentsSection";
 
 const initialBugs = [
   {

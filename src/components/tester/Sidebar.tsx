@@ -11,9 +11,8 @@ interface SidebarProps {
 const testerNav = [
   { to: "/tester/dashboard", label: "Dashboard", icon: "fa-home" },
   { to: "/tester/tasks", label: "Tasks", icon: "fa-tasks" },
-  { to: "/tester/inprogress", label: "In Progress", icon: "fa-spinner" },
-  { to: "/tester/resolved", label: "Resolved", icon: "fa-check" },
-  { to: "/tester/pending", label: "Pending", icon: "fa-clock" },
+  { to: "/tester/progress", label: "Progress", icon: "fa-spinner" },
+
   { to: "/tester/reports", label: "Reports", icon: "fa-file-alt" },
 ];
 
