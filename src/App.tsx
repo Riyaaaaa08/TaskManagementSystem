@@ -1,35 +1,253 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
-import './App.css'
+import React from "react";
+import "bootstrap/dist/css/bootstrap.min.css";
+import "./App.css";
+import {
+  BrowserRouter as Router,
+  Routes,
+  Route,
+  Navigate,
+} from "react-router-dom";
+
+import Login from "./pages/auth/Login";
+import ForgotPassword from "./pages/auth/ForgotPassword";
+import VerifyOtp from "./pages/auth/VerifyOtp";
+import ResetPassword from "./pages/auth/ResetPassword";
+
+import TesterDashboard from "./pages/tester/Dashboard.tsx";
+import TesterTasks from "./pages/tester/TesterTasks";
+import Progress from "./pages/tester/Progress";
+import Reports from "./pages/tester/TesterReports";
+import TesterProfile from "./components/EditProfile.tsx";
+
+import Projects from "./pages/admin/Projects.tsx";
+import Teams from "./pages/admin/Teams.tsx";
+
+import AddEmployee from "./pages/admin/AddEmployee.tsx";
+
+import DeveloperDashboard from "./pages/developer/Dashboard";
+import MyProjects from "./pages/developer/Myproject";
+import MyTeam from "./pages/developer/Myteam";
+import DeveloperReport from "./pages/developer/DeveloperReport";
+
+import LeaderDashboard from "./pages/leader/LeaderDashboard";
+import LeaderMyteam from "./pages/leader/LeaderMyteam";
+import LeaderProject from "./pages/leader/LeaderProject";
+import LeaderReport from "./pages/leader/LeaderReport";
+import CreateTask from "./pages/leader/CreateTask";
+
+import Header from "./components/tester/Header.tsx";
+import Sidebar from "./components/tester/Sidebar.tsx";
+
+/* Tester Layout */
+const TesterLayout: React.FC<{ children: React.ReactNode }> = ({
+  children,
+}) => (
+  <>
+    <Header />
+    <div className="d-flex vh-100">
+      <Sidebar role="tester" userName="Riya Panchal" userInitials="RP" />
+      <div className="flex-grow-1 d-flex flex-column app-main-offset">
+        <main
+          className="flex-grow-1 overflow-auto p-0"
+          style={{ background: "#F7F3FF" }}
+        >
+          {children}
+        </main>
+      </div>
+    </div>
+  </>
+);
+
+/* Developer Layout */
+const DeveloperLayout: React.FC<{ children: React.ReactNode }> = ({
+  children,
+}) => (
+  <>
+    <Header />
+    <div className="d-flex vh-100">
+      <Sidebar role="developer" userName="John Doe" userInitials="JD" />
+      <div className="flex-grow-1 d-flex flex-column app-main-offset">
+        <main
+          className="flex-grow-1 overflow-auto p-0"
+          style={{ background: "#F7F3FF" }}
+        >
+          {children}
+        </main>
+      </div>
+    </div>
+  </>
+);
+
+/* Leader Layout */
+const LeaderLayout: React.FC<{ children: React.ReactNode }> = ({
+  children,
+}) => (
+  <>
+    <Header />
+    <div className="d-flex vh-100">
+      <Sidebar role="leader" userName="Gauri More" userInitials="GM" />
+      <div className="flex-grow-1 d-flex flex-column app-main-offset">
+        <main className="flex-grow-1 p-3" style={{ background: "#F7F3FF" }}>
+          {children}
+        </main>
+      </div>
+    </div>
+  </>
+);
 
 function App() {
-  const [count, setCount] = useState(0)
-
   return (
-    <>
-      <div>
-        <a href="https://vite.dev" target="_blank">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://react.dev" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
+    <Router>
+      <div className="container-fluid vh-100 p-0">
+        <Routes>
+          {/* Auth Routes */}
+          <Route path="/login" element={<Login />} />
+          <Route path="/forgot" element={<ForgotPassword />} />
+          <Route path="/verify" element={<VerifyOtp />} />
+          <Route path="/reset" element={<ResetPassword />} />
+
+          {/* Tester Routes */}
+          <Route
+            path="/dashboard"
+            element={
+              <TesterLayout>
+                <TesterDashboard />
+              </TesterLayout>
+            }
+          />
+          <Route
+            path="/tasks"
+            element={
+              <TesterLayout>
+                <TesterTasks />
+              </TesterLayout>
+            }
+          />
+          <Route
+            path="/progress"
+            element={
+              <TesterLayout>
+                <Progress />
+              </TesterLayout>
+            }
+          />
+
+          <Route
+            path="/testerreports"
+            element={
+              <TesterLayout>
+                <Reports />
+              </TesterLayout>
+            }
+          />
+          <Route
+            path="/profile"
+            element={
+              <>
+                <Header />
+                <div className="d-flex vh-100">
+                  <Sidebar />
+                  <div className="flex-grow-1 d-flex flex-column app-main-offset">
+                    <main
+                      className="flex-grow-1 overflow-auto p-0"
+                      style={{ background: "#F7F3FF" }}
+                    >
+                      <TesterProfile />
+                    </main>
+                  </div>
+                </div>
+              </>
+            }
+          />
+          <Route path="/" element={<Navigate to="/projects" replace />} />
+          <Route path="/projects" element={<Projects />} />
+          <Route path="/teams" element={<Teams />} />
+          {/* Stubs for other sections if needed */}
+          <Route path="/employees/add" element={<AddEmployee />} />
+          <Route path="*" element={<Navigate to="/projects" replace />} />
+
+          {/* Developer Routes */}
+          <Route
+            path="/dashboard"
+            element={
+              <DeveloperLayout>
+                <DeveloperDashboard />
+              </DeveloperLayout>
+            }
+          />
+          <Route
+            path="/my-projects"
+            element={
+              <DeveloperLayout>
+                <MyProjects />
+              </DeveloperLayout>
+            }
+          />
+          <Route
+            path="/my-team"
+            element={
+              <DeveloperLayout>
+                <MyTeam />
+              </DeveloperLayout>
+            }
+          />
+          <Route
+            path="/reports"
+            element={
+              <DeveloperLayout>
+                <DeveloperReport />
+              </DeveloperLayout>
+            }
+          />
+
+          {/* Leader Routes */}
+          <Route
+            path="/leaderdashboard"
+            element={
+              <LeaderLayout>
+                <LeaderDashboard />
+              </LeaderLayout>
+            }
+          />
+          <Route
+            path="/leadermyteam"
+            element={
+              <LeaderLayout>
+                <LeaderMyteam />
+              </LeaderLayout>
+            }
+          />
+          <Route
+            path="/leaderproject"
+            element={
+              <LeaderLayout>
+                <LeaderProject />
+              </LeaderLayout>
+            }
+          />
+          <Route
+            path="/leaderreport"
+            element={
+              <LeaderLayout>
+                <LeaderReport />
+              </LeaderLayout>
+            }
+          />
+          <Route
+            path="/create-task"
+            element={
+              <LeaderLayout>
+                <CreateTask onClose={() => {}} />
+              </LeaderLayout>
+            }
+          />
+
+          {/* Default Redirect */}
+          <Route path="/" element={<Navigate to="/login" replace />} />
+        </Routes>
       </div>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.tsx</code> and save to test HMR
-        </p>
-      </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
-    </>
-  )
+    </Router>
+  );
 }
 
-export default App
+export default App;

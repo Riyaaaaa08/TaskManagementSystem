@@ -1,0 +1,90 @@
+import React from "react";
+import { NavLink } from "react-router-dom";
+
+interface SidebarProps {
+  role: "tester" | "developer" | "leader";
+  userName?: string;
+  userInitials?: string;
+}
+
+// Tester menu
+const navItems = [
+  { to: "/dashboard", label: "Dashboard", icon: "fa-home" },
+  { to: "/tasks", label: "Tasks", icon: "fa-tasks" },
+  { to: "/progress", label: "Progress", icon: "fa-spinner" },
+  // { to: "/dashboard", label: "Dashboard", icon: "fa-home" },
+  { to: "/my-projects", label: "My Projects", icon: "fa-folder" },
+  { to: "/my-team", label: "My Team", icon: "fa-users" },
+  { to: "/reports", label: "Reports", icon: "fa-chart-bar" },
+  { to: "/testerreports", label: "Reports", icon: "fa-file-alt" },
+];
+
+// Developer menu
+
+// Leader menu
+const leaderNav = [
+  { to: "/leaderdashboard", label: "Dashboard", icon: "fa-home" },
+  { to: "/leaderproject", label: "My Projects", icon: "fa-folder" },
+  { to: "/leadermyteam", label: "Teams", icon: "fa-users" },
+  { to: "/leaderreport", label: "Reports", icon: "fa-chart-line" },
+];
+
+const Sidebar: React.FC<SidebarProps> = ({
+  role,
+  userName = "User",
+  userInitials = "U",
+}) => {
+  // const navItems =
+  //   role === "tester"
+  //     ? testerNav
+  //     : role === "developer"
+
+  //     : leaderNav;
+
+  return (
+    <div
+      className="sidebar bg-primary text-white d-flex flex-column app-sidebar-offset"
+      style={{ width: 220, minHeight: "100vh" }}
+    >
+      <nav className="nav flex-column px-2">
+        {navItems.map(({ to, label, icon }) => (
+          <NavLink
+            key={to}
+            to={to}
+            className={({ isActive }) =>
+              "nav-link d-flex align-items-center mb-1 rounded px-3 " +
+              (isActive ? "bg-purple text-white" : "text-white")
+            }
+            style={{ textDecoration: "none" }}
+            end
+          >
+            <i className={`fa ${icon} me-2`} />
+            {label}
+          </NavLink>
+        ))}
+      </nav>
+
+      {/* User Info at bottom */}
+      <div className="mt-auto p-3 d-flex align-items-center">
+        <div
+          className="rounded-circle bg-secondary d-flex justify-content-center align-items-center me-2"
+          style={{ width: 40, height: 40, color: "white" }}
+        >
+          {userInitials}
+        </div>
+        <div>
+          <div className="fw-bold">{userName}</div>
+          <div className="small">
+            {role === "tester"
+              ? "Tester"
+              : role === "developer"
+              ? "Developer"
+              : "Leader"}
+          </div>
+        </div>
+      </div>
+    </div>
+  );
+};
+
+export default Sidebar;
